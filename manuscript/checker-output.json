@@ -1,0 +1,89 @@
+{
+  "appendix_a": {
+    "four_row_diagram_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      38
+    ],
+    "other_finite_losing_positions": 17,
+    "positions": 38
+  },
+  "checks": [
+    "source moves equal row/height moves",
+    "conjugation is involutive",
+    "every move decreases cell count",
+    "classification equals exact mex outcome",
+    "classification satisfies both transition conditions",
+    "all thirteen winning-move cases have legal losing followers",
+    "disjoint table equals the four-clause formula",
+    "classification agrees with Mehat Theorem 4 parity table",
+    "even-rank and first-row/first-column consequences",
+    "two-part padding and appending formulas",
+    "one-part padding and appending formulas",
+    "losing-hook stacking with at most four rows and conjugates",
+    "odd-hook stacks ending in one with at most four rows",
+    "Conjecture 2 boundary has Grundy value one",
+    "2022 staircase conjecture has boundary exceptions at one and three",
+    "all 38 Appendix A diagrams have Grundy value zero"
+  ],
+  "counts": {
+    "losing_four_part_positions": 15761,
+    "positions_0_parts": 1,
+    "positions_1_parts": 30,
+    "positions_2_parts": 465,
+    "positions_3_parts": 4960,
+    "positions_4_parts": 40920
+  },
+  "examples_grundy": {
+    "()": 0,
+    "(1, 1, 1)": 1,
+    "(2, 2, 2, 1)": 0,
+    "(4, 2, 2, 1)": 1,
+    "(4, 3, 3, 2)": 4,
+    "(6, 4, 3, 2)": 0
+  },
+  "max_part": 30,
+  "max_rows": 4,
+  "sibling_counts": {
+    "hook_stack_3_2": 1120,
+    "hook_stack_4_2": 1120,
+    "hook_stack_4_3": 4865,
+    "hook_stack_instances": 7149,
+    "odd_hook_stacks_ending_in_one": 14,
+    "one_part_inputs": 30
+  },
+  "status": "ALL_CHECKS_OK",
+  "strategy_case_counts": {
+    "1": 4760,
+    "10": 455,
+    "11": 455,
+    "12": 14,
+    "13": 91,
+    "2": 105,
+    "3": 1134,
+    "4": 1,
+    "5": 14,
+    "6": 210,
+    "7": 10080,
+    "8": 3640,
+    "9": 4200
+  }
+}

@@ -1,0 +1,497 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array,longtable}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\setlength{\emergencystretch}{1em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\PP}{\mathcal P}
+\newcommand{\NN}{\mathcal N}
+\newcommand{\G}{\mathcal G}
+\newcommand{\even}{\mathrm{even}}
+\newcommand{\odd}{\mathrm{odd}}
+\title{Ba\v{s}i\'c--Gottlieb--Krnc (2026), Section 5, Question 1 (p.~17):\\an alternative four-part proof after Mehat (2026),\\with explicit strategies and small-row stacking}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore\and
+Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{6 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For Ba\v{s}i\'c--Gottlieb--Krnc (2026), Section~5, Question~1, p.~17,
+we give an alternative proof of Mehat's classification (23 August 2026)
+of all losing four-part positions in normal-play CRIM, with no bound
+on the part sizes.
+For $a\ge b\ge c\ge d\ge1$, the largest part $a$ must be even;
+four disjoint cases involving $d$, $c$ and the parity of $b$ give the remaining conditions.
+The proof identifies every possible column move by its height and gives
+an explicit winning move in each complementary case.
+Consequences include even-rank necessity and hook-stacking closure with at most
+four rows or columns, the odd-gap winning-move conclusion through six rows
+or columns using Mehat's rank theorem, exact padding formulas for one- and two-part inputs,
+and an explanation of 21 of the 38 diagrams in their Appendix~A.
+\end{abstract}
+
+\section{The classification}
+In CRIM, a position is an integer partition
+$\lambda=[\lambda_1,\ldots,\lambda_r]$ with
+$\lambda_1\ge\cdots\ge\lambda_r>0$.
+A move deletes one row or one column of its Young diagram and joins the
+remaining pieces. Equivalently, a row move deletes a part, and a column move
+conjugates the partition, deletes a part, and conjugates back.
+The player with no move loses. Write $\PP$ for the losing positions and
+$\NN$ for the winning positions. The empty partition $[\,]$ is in $\PP$.
+Section~5, Question~1, p.~17 of Ba\v{s}i\'c--Gottlieb--Krnc~\cite{BGK}
+asks: ``Which partitions consisting of four parts are losing?''
+Mehat~\cite[Theorem~4, p.~2; proof in Section~8, p.~9]{Mehat}
+answered this question in the manuscript included in his public archive
+of 23 August 2026. His Theorems~1--2 classify positions through six rows
+or columns by a finite table of truncated gap types. The following
+equivalent four-case formula has a direct cell-count induction proof
+and an explicit winning-move table.
+
+\begin{theorem}[Mehat (2026), Theorem 4]\label{thm:main}
+Let $a\ge b\ge c\ge d\ge1$. Then $[a,b,c,d]\in\PP$ if and only if
+$a$ is even and the applicable row of the following table holds.
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Range & Additional condition\\
+\midrule
+$d\ge2$ & $b,c$ are not both odd\\
+$d=1,\ c=1$ & $b=1$ or $b$ is even\\
+$d=1,\ c=2$ & $b\ge3$ or $a=2$\\
+$d=1,\ c\ge3$ & $b$ is odd\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{theorem}
+
+For example, $[2,2,2,1]\in\PP$ but $[4,2,2,1]\in\NN$.
+Also $[6,4,3,2]\in\PP$ whereas $[4,3,3,2]\in\NN$.
+The boundary $[2,2,2,1]$ explains why an even largest part alone does not
+resolve the cases ending in $[2,1]$.
+For the previously studied almost-hooks $[a,b,b,b]$ with $b\ge3$,
+the table gives losing exactly when $a,b$ are even, in agreement with
+Ba\v{s}i\'c--Gottlieb--Krnc (2022), Theorem~5.1~\cite{BGK22}, restated
+as Theorem~8 of~\cite{BGK}. The classification extends beyond that family.
+
+\section{Proof and winning moves}
+For a position with $r$ parts, put $\lambda_{r+1}=0$.
+Let $R_i$ denote deletion of row $i$.
+A column of height $t$ exists precisely when $\lambda_t>\lambda_{t+1}$.
+Every such column has the same follower, denoted $C_t$: subtract one from
+the first $t$ parts and discard zeros.
+There are $\lambda_t-\lambda_{t+1}$ columns of height $t$, so the
+$R_i$ and these $C_t$ exhaust all moves, including interior-column deletions.
+The strict gap at $t$ preserves the order of the parts.
+Every move decreases the number of cells and preserves the class of
+partitions with at most four parts.
+
+Define a predicate $P^*$ on that class as follows:
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Position & Condition for $P^*$\\
+\midrule
+$[\,]$ & always\\
+$[a]$ & never\\
+$[a,b]$ & $a$ is even\\
+$[a,b,c]$ & $a>1$, $a,b$ odd, and $(c>1\text{ or }b=1)$\\
+$[a,b,c,d]$ & the conditions of Theorem~\ref{thm:main}\\
+\bottomrule
+\end{tabular}
+\end{center}
+All displayed parts are positive and nonincreasing.
+The two-part row is Proposition~10 of~\cite{BGK}.
+The three-part row is the criterion of its Theorem~11 with the necessary
+exception $[1,1,1]$: deletion of its only column reaches $[\,]$, so
+$[1,1,1]\in\NN$. This precise correction was already given by
+Mehat~\cite[Corollary~25, p.~9; Section~12, p.~12]{Mehat}.
+We reprove the corrected three-part row together with
+the four-part row, without relying on the omitted boundary case.
+
+\subsection{No $P^*$ position has a $P^*$ follower}
+The empty position has no follower.
+From a two-part $P^*$ position, row deletion leaves one part.
+Column deletion changes the even first part to an odd part and leaves one
+or two positive parts; it cannot erase an even-width position completely.
+Neither type of follower satisfies $P^*$.
+
+From a three-part $P^*$ position, every row deletion leaves two parts
+with odd first part. A column deletion retaining three parts changes the
+first part to an even number. If the bottom row disappears, then $c=1$;
+the predicate forces $b=1$, and only the positive row $[a-1]$ remains.
+Again every follower fails $P^*$.
+
+Now let $[a,b,c,d]$ satisfy the four-part predicate, so $a$ is even.
+Every $R_i$ with $i>1$ leaves three parts with even first part.
+For $R_1$ to satisfy $P^*$ we would need
+\[
+ b>1,\quad b,c\text{ odd},\quad (d>1\text{ or }c=1).
+\]
+If $d>1$ this contradicts the first row of Theorem~\ref{thm:main};
+if $c=1$ it contradicts the second row.
+Every legal $C_t$ with $t<4$ leaves four positive parts with odd first
+part, as does $C_4$ if $d>1$.
+
+It remains to consider $C_4$ when $d=1$.
+Its follower is the positive part of $[a-1,b-1,c-1]$.
+If $c=1$, it has one or two positive parts and odd first part.
+If $c\ge2$ and $b$ is odd, it has three parts and even second part.
+Otherwise the four-part predicate forces $c=2$ and either $b\ge3$ or
+$a=2$. For $b\ge3$, the follower has last part $1$ and second part
+at least $2$, so it is not a three-part $P^*$ position.
+For $a=2$ we have $b=c=2$, and the follower is $[1,1,1]$,
+also outside $P^*$.
+This exhausts all possibilities.
+
+\subsection{Every other position has a $P^*$ follower}
+A one-part position deletes its row to $[\,]$.
+For two parts outside $P^*$, $a$ is odd.
+If $a=1$, use $C_2$ to reach $[\,]$.
+If $a>1$ and $a>b$, use $C_1$; if $a=b>1$, use $C_2$.
+The latter followers have two positive parts and even first part.
+
+For three parts outside $P^*$, if $a$ is even use $R_2$;
+if $a$ is odd and $b$ even use $R_1$.
+Both followers have two parts and even first part.
+Otherwise $a,b$ are odd.
+If $a=1$, use $C_3$ to reach $[\,]$.
+The only remaining failure of $P^*$ is $a>1$, $b>1$, $c=1$.
+Use $C_3$ to reach the two-part position $[a-1,b-1]$ with even first part.
+
+For four parts outside $P^*$ the following thirteen cases are disjoint
+and exhaustive. Each row assumes $a\ge b\ge c\ge d\ge1$ and failure of
+the four-part predicate.
+\begin{center}
+\small
+\begin{tabular}{rlll}
+\toprule
+ & Conditions & Move & Follower\\
+\midrule
+1 & $a$ even, $d>1$ & $R_1$ & $[b,c,d]$\\
+2 & $a$ even, $d=c=1$ & $R_1$ & $[b,1,1]$\\
+3 & $a$ even, $d=1<c$ & $C_4$ & $[a-1,b-1,c-1]$\\
+4 & $a=1$ & $C_4$ & $[\,]$\\
+5 & $a>1$ odd, $b=c=1$ & $C_1$ & $[a-1,1,1,1]$\\
+6 & $a$ odd, $c=1<b$ & $R_2$ & $[a,1,1]$\\
+7 & $a,b$ odd, $c>1$ & $R_4$ & $[a,b,c]$\\
+8 & $a,c$ odd, $b$ even, $d>1$ & $R_2$ & $[a,c,d]$\\
+9 & $a$ odd, $b,c$ even, $d>1$ & $C_1$ & $[a-1,b,c,d]$\\
+10 & $a,c$ odd, $b$ even, $d=1<c$ & $C_2$ & $[a-1,b-1,c,1]$\\
+11 & $a$ odd, $b,c$ even, $d=1$, $c\ge4$ & $C_3$ & $[a-1,b-1,c-1,1]$\\
+12 & $a$ odd, $b=c=2$, $d=1$ & $C_3$ & $[a-1,1,1,1]$\\
+13 & $a$ odd, $b>2$ even, $c=2$, $d=1$ & $C_1$ & $[a-1,b,2,1]$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Here is a check of every row, including the existence of the chosen column.
+In row~1, failure of the predicate forces $b,c$ odd, while $d>1$,
+so the follower satisfies the three-part rule.
+In row~2 it forces $b>1$ odd, giving the three-part hook.
+In row~3, $b$ is even. If $c\ge3$, the follower has odd first two parts
+and last part at least $2$. If $c=2$, failure of the predicate forces
+$b=2$ and $a>2$, giving $[a-1,1,1]$ with $a-1>1$ odd.
+In all these cases $C_4$ exists because $d=1$.
+
+Row~4 is the all-one column.
+In row~5, $a>1=b$ ensures $C_1$ exists; its follower satisfies the
+$c=d=1$, $b=1$ case.
+Row~6 gives a three-part hook, and row~7 gives three parts with
+odd first two entries and third entry greater than $1$.
+Row~8 has the same three-part property.
+In row~9, parity implies $a>b$, so $C_1$ exists and its follower
+has even first part, $d>1$, and even middle parts.
+In row~10, parity implies $b>c$, so $C_2$ exists;
+the follower has even first part, odd second part, and $c>1$.
+In row~11, $c>1=d$ ensures $C_3$ exists; the new second part
+is odd and the new third part is at least $3$.
+In row~12, $c=2>d$ ensures $C_3$ exists, and the follower has
+even first part and all other parts equal to $1$.
+Finally in row~13, $a>b$ follows from parity; the follower satisfies
+the $c=2,d=1,b\ge3$ row of Theorem~\ref{thm:main}.
+
+To check exhaustion, first separate even and odd $a$.
+For even $a$, split $d>1$, $d=c=1$, and $d=1<c$.
+For odd $a$, separate $a=1$, then $c=1$, then $c>1$ with $b$ odd
+or even. In the even-$b$ branch, split $d>1$ from $d=1$ and then
+split the parity and size of $c$ as in rows~8--13.
+Thus every position outside $P^*$ has a legal $P^*$ follower.
+
+\subsection{Induction}
+Induct strongly on the number of cells.
+Every follower has fewer cells, so assume its losing status agrees with
+$P^*$. A $P^*$ position has no losing follower and is losing.
+A position outside $P^*$ has a losing follower and is winning.
+This proves the classification on the entire move-closed class of
+partitions with at most four parts, and in particular proves
+Theorem~\ref{thm:main}. In the standard mex description of finite
+impartial games~\cite[\S6, Satz~I]{Sprague}, equivalently,
+\[
+ \G(\lambda)=\operatorname{mex}\{\G(\mu):\lambda\longrightarrow\mu\}
+\]
+is zero exactly when $P^*(\lambda)$ holds.
+
+\section{Consequences and source coverage}
+\begin{corollary}\label{cor:rank}
+A losing CRIM position with at most four rows or at most four columns
+has even rank $|r-\lambda_1|$.
+\end{corollary}
+\begin{proof}
+For two rows the largest part is even; for three it is odd; for four
+it is even. The empty position has rank zero and one-row positions
+are winning. Conjugation preserves legal moves and exchanges the row
+and column counts, so the conclusion also holds for at most four columns.
+\end{proof}
+This proves the corresponding restricted case of Conjecture~1
+in~\cite{BGK}. Mehat~\cite[Corollary~3, p.~2; Section~9, p.~10]{Mehat}
+proved the stronger statement with six in place of four; we use that
+stronger result in the next deduction.
+Conjugating Theorem~\ref{thm:main} also classifies all positions with
+exactly four columns, by applying its table to their four column heights.
+
+\begin{corollary}\label{cor:gap}
+The conclusion of Observation~1 of~\cite{BGK} holds unconditionally
+for positions with at most six rows or columns: from a winning position
+of even rank, either the first row or the first column can be removed
+to reach a losing position, and at least one of the first two row-length
+or column-height gaps is odd (missing entries are zero).
+\end{corollary}
+\begin{proof}
+The scope is closed under moves. A winning position has a losing follower;
+Mehat's rank theorem makes that follower's rank even. Deleting a row
+other than the first changes the row-count parity but not the width,
+so cannot give this follower. Deleting the first row changes the width
+to $\lambda_2$ and the row count to $r-1$; equality of the old and new
+rank parities requires $\lambda_1-\lambda_2$ odd. A column deletion
+that leaves the row count unchanged changes the width parity and cannot
+give the follower either. To eliminate a row it must delete the first
+column, with all bottom unit rows disappearing. The new row count is
+$\lambda'_2$, so parity requires $r-\lambda'_2=\lambda'_1-\lambda'_2$
+odd. These are all possibilities. The empty follower is included by
+taking missing parts and column heights to be zero.
+\end{proof}
+
+\begin{corollary}\label{cor:pad}
+Let $a\ge b\ge1$ and $\lambda=[a,b]$. For the padding operation
+$\widehat\lambda=[a,a,a,b]$ of Section~5.1 of~\cite{BGK},
+\[
+ \widehat\lambda\in\PP
+ \quad\Longleftrightarrow\quad
+ a\text{ is even and }(b\ge2\text{ or }a=2).
+\]
+Moreover,
+\[
+ [a,b,1,1]\in\PP
+ \quad\Longleftrightarrow\quad
+ a\text{ is even and }(b=1\text{ or }b\text{ is even}).
+\]
+\end{corollary}
+\begin{proof}
+For $[a,a,a,b]$ with even $a$, if $b\ge2$ use the first row of
+Theorem~\ref{thm:main}. If $b=1$ and $a=2$, use its third row;
+if $b=1$ and $a\ge4$, its fourth row fails because its second part
+is $a$, an even number. Odd $a$ always fails.
+For $[a,b,1,1]$, use the second row of the theorem.
+\end{proof}
+Thus, among losing two-part positions, Question~5 has the exact answer
+$b\ge2$ or $a=2$. For every two-part position the implication
+$\widehat\lambda\in\PP\Rightarrow\lambda\in\PP$ in Question~6 holds.
+The second formula answers the analogous two-part question about
+appending two unit parts, and proves its converse implication on two-part inputs.
+
+\begin{corollary}\label{cor:one}
+For every $a\ge1$, both $[a,a,a]$ and $[a,1,1]$ are losing exactly when
+$a>1$ is odd, whereas $[a]$ is always winning.
+Consequently, among one-part inputs, the implication in Question~6 holds
+exactly when $a=1$ or $a$ is even. The converse implication for appending
+two unit parts fails for every odd $a\ge3$.
+\end{corollary}
+\begin{proof}
+Substitute into the three-part row of $P^*$; delete the row from $[a]$.
+\end{proof}
+
+\begin{corollary}\label{cor:stack}
+Conjecture~8 of~\cite[Section~5.1, p.~19]{BGK} holds whenever the resulting
+stack has at most four rows or at most four columns: stacking a losing
+partition inside a losing hook gives a losing partition.
+\end{corollary}
+\begin{proof}
+Write the outer hook as $[c,1^{r-1}]$. A nonempty losing hook has $r,c\ge2$
+of the same parity, by the source's Proposition~7. A stack inside it has
+the form $[c,1+\mu_1,\ldots,1+\mu_k,1^{r-k-1}]$, where
+$k\le r-1$ and $\mu_1+1\le c$. The empty inner partition leaves the
+losing hook unchanged; a nonempty losing inner partition has $k\ge2$.
+For $r\le4$ the possibilities are therefore $(r,k)=(3,2),(4,2),(4,3)$.
+When $(r,k)=(3,2)$, $c$ is odd and $\mu_1$ is even, so the three-part
+criterion holds. When $(r,k)=(4,2)$, $c$ is even and $1+\mu_1$ is odd;
+the four-part criterion with last part $1$ holds. When $(r,k)=(4,3)$,
+$c$ is even and $\mu_1$ is odd, so the second part is even and the last
+part is at least $2$; again the criterion holds. Transposition exchanges
+rows and columns and conjugates a stack to the corresponding stack of
+the conjugate hook and inner partition, giving the column case.
+\end{proof}
+The row-removal argument in Observation~2, p.~20 of~\cite{BGK}, now
+applies without a conjectural premise when its stack has at most four
+rows or columns: the indicated successive even hooks give losing stacks
+by Corollary~\ref{cor:stack}. Thus a stack of odd hooks ending in $[1]$
+in this range is winning, and removal of its first row is a winning move.
+
+\begin{corollary}\label{cor:boundary}
+The formula in Conjecture~2 of~\cite[Section~5, p.~18]{BGK} fails at
+$(r,k)=(1,0)$: the square rectair $R^0_{1,1}=[1]$ has Grundy value $1$,
+not $2$. The corrected value at this boundary is $1$.
+\end{corollary}
+\begin{proof}
+The sole distinct follower of $[1]$ is the empty partition, of value $0$,
+so its mex is $1$. In the printed formula, neither $r$ even nor $k<r-1$
+holds, and $r\notin\{3,5\}$, giving $2$.
+\end{proof}
+This corrects the boundary value, not the formula for $r\ge2$.
+The winning status of $[1]$, and that of $[1,1,1]$ used above, also
+follow from the source's Proposition~7 and the hook formula of
+\cite[Theorem~4.1]{BGK22}; neither individual value is new.
+The staircase conjecture in~\cite[Section~6, Conjecture~1]{BGK22}
+also predicts $2$ instead of $1$ at $S_1=[1]$ and $S_3=[3,2,1]$.
+Indeed $S_3$ has distinct followers $[2,1]$, $[3,1]$, $[3,2]$,
+$[2,1,1]$ and $[2,2,1]$, of values $0,3,3,3,3$, respectively,
+so its mex is $1$.
+These exceptions are already included in the revised Conjecture~4
+of~\cite{BGK}; its unrestricted odd-staircase formula is not proved here.
+
+\paragraph{Appendix A, p.~24.}
+Number the source's 38 diagrams in reading order, left to right in each
+row. The 21 with four rows are numbers $1$--$12$, $17$--$24$, and $38$.
+They are precisely
+\[
+\begin{gathered}
+[4,2,2,2],\ [6,2,2,2],\ [6,4,1,1],\ [6,3,2,2],\ [6,4,2,1],\\
+[4,4,3,3],\ [6,4,2,2],\ [6,6,1,1],\ [8,2,2,2],\ [8,4,1,1],\\
+[6,4,3,2],\ [6,5,3,1],\ [8,3,2,2],\ [8,4,2,1],\ [8,6,1,1],\\
+[10,2,2,2],\ [6,4,3,3],\ [6,4,4,2],\ [8,4,2,2],\ [8,5,2,1],\ [10,4,1,1].
+\end{gathered}
+\]
+Substitution in Theorem~\ref{thm:main} explains each losing status.
+The remaining 17 diagrams have more than four rows and columns; the
+accompanying exact evaluator confirms their individual losing values.
+
+The following table records the scope relative to the numbered future-work
+items in~\cite{BGK}. ``Not covered'' concerns the scope of this note.
+\begingroup\small
+\begin{longtable}{p{0.29\textwidth}p{0.62\textwidth}}
+\toprule
+Source item & Coverage\\
+\midrule
+Question 1, Section 5, p.~17 & Answered: exactly Theorem~\ref{thm:main}.
+Reproved; prior proof Mehat (2026), Theorem 4.\\
+Conjecture 1, p.~17 & Reproved through four rows or columns; prior proof
+Mehat (2026), Corollary 3, through six.\\
+Observation 1, p.~17 & Proved through six rows or columns using Mehat's
+Corollary 3: Corollary~\ref{cor:gap}.\\
+Question 2 & Zero Grundy values determined for at most four parts;
+nonzero values not covered in general.\\
+Conjecture 2, p.~18 & Refuted (explicit counterexample $r=1,k=0$);
+boundary corrected to $1$. Formula for $r\ge2$ not covered.\\
+Conjectures 3, 4, 5, p.~18 & General Grundy-value formulas not covered.\\
+Question 3 & General rectair Grundy values not covered.\\
+Conjecture 6; Question 4 & Conway-pair classification not covered.\\
+Conjecture 7 & General thick-hook melds not covered.\\
+Question 5, Section 5.1, p.~19 & Answered for two-part losing inputs:
+$b\ge2$ or $a=2$. No one-part losing inputs exist.\\
+Question 6, p.~19 & Answered: yes for all two-part inputs;
+for one-part inputs, yes exactly when $a=1$ or $a$ even.\\
+Unit-part appending question, p.~19 & Answered on one- and two-part inputs:
+Corollaries~\ref{cor:pad} and~\ref{cor:one}.\\
+Conjecture 8; Observation 2, pp.~19--20 & Proved for resulting stacks with
+at most four rows or columns; general statements not covered.\\
+Conjecture 9 & General parity self-conjugate criterion not covered.\\
+Proposition 10 & Reproved; prior proof Ba\v{s}i\'c--Gottlieb--Krnc (2026).\\
+Theorem 11, p.~9 & Refuted-and-corrected at $[1,1,1]$; corrected criterion
+reproved. Prior correction/proof Mehat (2026), Corollary 25 and Section 12.\\
+Appendix A, p.~24 & 21 of 38 losing diagrams explained by the theorem;
+17 other individual positions confirmed by finite checks.\\
+BGK (2022), Theorem 5.1 & Prior proof cited: the almost-hook subfamily
+$[a,b,b,b]$, $b\ge3$.\\
+BGK (2022), Conjecture 1 & Refuted at $S_1,S_3$; prior correction
+BGK (2026), Conjecture 4 cited. General formula not covered.\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\section{Verification coverage}
+The Lean declaration
+\texttt{D5.S3.Combinatorics.Games.}\allowbreak
+\texttt{CrimFourPartClassification.result}, in the
+\href{https://github.com/the-omega-institute/trureturing/blob/e0da8fcc80226febc4e7ea0836927bc71d158292/D5/S3/Combinatorics/Games/CrimFourPartClassification.lean}{pinned classification file},
+has statement \texttt{claim}: for every $1\le d\le c\le b\le a$,
+$\G([a,b,c,d])=0$ if and only if $a$ is even and
+\begin{align*}
+ &(d\ge2\ \text{and $b,c$ not both odd})\\
+ {}\text{or }&(d=c=1\ \text{and $(b\text{ even or }b=1)$})\\
+ {}\text{or }&(d=1,\ c\ge2,\ b\text{ odd})\\
+ {}\text{or }&(d=1,\ c=2,\ (b\ge3\text{ or }a=2)).
+\end{align*}
+Splitting $c=2$ from $c\ge3$ makes this exactly
+Theorem~\ref{thm:main}. The
+\href{https://github.com/the-omega-institute/trureturing/blob/e0da8fcc80226febc4e7ea0836927bc71d158292/D5/S0/Certificates/Games/CrimGrundyRefutation.lean}{pinned evaluator file}
+defines \texttt{rowMoves} and \texttt{conjugate}.
+Its \texttt{moves} function combines row and column deletion;
+\texttt{grundy\_eq} gives the mex recurrence for \texttt{grundy}.
+Strict cell descent is given by \texttt{move\_decreases}.
+Its separate \texttt{result} negates the printed Conjecture~3 using
+$R^5_{7,6}$; that seven-row statement is outside the present note's coverage.
+The consequence statements above have written proofs in this note.
+The declaration \texttt{result} in the
+\href{https://github.com/the-omega-institute/trureturing/blob/e0da8fcc80226febc4e7ea0836927bc71d158292/D5/S0/Certificates/Games/CrimRectairSquareBoundaryRefutation.lean}{pinned square-rectair file}
+proves the negation of the printed universal Conjecture~2, using exactly
+the boundary in Corollary~\ref{cor:boundary}; it asserts no replacement
+formula for $r\ge2$.
+
+The accompanying \texttt{verify.py} independently constructs all source
+moves by conjugation and computes their exact mex values.
+For all $46\,376$ partitions with at most four parts and largest part
+at most $30$, it checks the classification, conjugation, move completeness,
+strict descent, both $P^*$ transition conditions and the consequences above.
+There are $40\,920$ four-part inputs, of which $15\,761$ are losing;
+each of the thirteen strategy cases occurs.
+These finite checks complement the unrestricted induction proof.
+The same evaluator checks the one-part formulas through $a=30$, all
+fitting losing-hook stacks with at most four rows and outer width at most
+$30$ and their conjugates, and the 38 diagrams of Appendix~A separately.
+They also give
+$\G([1,1,1])=1$, $\G([4,3,3,2])=4$ and $\G([6,4,3,2])=0$.
+
+\begin{thebibliography}{4}
+\bibitem{BGK}
+I.~Ba\v{s}i\'c, E.~Gottlieb and M.~Krnc,
+\emph{CRIM: A Natural Game on Integer Partitions},
+\href{https://arxiv.org/abs/2606.16828v1}{arXiv:2606.16828v1}, 15 June 2026.
+Sections~2.1, 2.3, 3.1, 5 and 5.1.
+\bibitem{Mehat}
+S.~S.~Mehat,
+\emph{Losing positions of CRIM for partitions with at most six parts},
+14-page manuscript in the supplementary artifact, version 1.0.0,
+23 August 2026, \href{https://doi.org/10.5281/zenodo.22070744}{Zenodo 22070744}.
+Theorems~1, 2, 4; Corollaries~3, 25; Sections~8, 9 and~12.
+\bibitem{BGK22}
+I.~Ba\v{s}i\'c, E.~Gottlieb and M.~Krnc,
+\emph{Some observations on the Column-Row game},
+Proceedings of the 8th Student Computing Research Symposium (SCORES'22),
+Ljubljana, 6 October 2022, pp.~29--32.
+\href{https://zalozba.fri.uni-lj.si/SCORES2022.pdf}{Proceedings},
+Theorems~4.1 and~5.1; Section~6, Conjecture~1.
+\bibitem{Sprague}
+R.~Sprague,
+\emph{\"Uber mathematische Kampfspiele},
+Tohoku Mathematical Journal, First Series \textbf{41} (1935), 438--444.
+\href{https://www.jstage.jst.go.jp/article/tmj1911/41/0/41_0_438/_article}{Publisher text};
+\S6, Satz~I, pp.~439--440.
+\end{thebibliography}
+\bigskip
+\noindent\small\textcopyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under Creative Commons Attribution 4.0 International
+(CC BY 4.0).
+\end{document}

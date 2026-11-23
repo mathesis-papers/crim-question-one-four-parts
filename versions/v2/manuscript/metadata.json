@@ -1,0 +1,32 @@
+{
+  "id": "crim-question-one-four-parts",
+  "revision": 2,
+  "problem_ids": ["crim-question-one-four-parts", "crim-rectair-square-conjecture-two-refutation"],
+  "topic": "Losing four-part positions in normal-play CRIM; Bašić–Gottlieb–Krnc (2026), Section 5, Question 1, p. 17",
+  "title": "Bašić–Gottlieb–Krnc (2026), Section 5, Question 1 (p. 17): an alternative four-part proof after Mehat (2026), with explicit strategies and small-row stacking",
+  "creators": [
+    {"name": "Ma, Haobo", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Zhang, Wenlin", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "For Bašić–Gottlieb–Krnc (2026), Section 5, Question 1, p. 17, we give an alternative proof of Mehat's classification (23 August 2026) of all losing four-part positions in normal-play CRIM, with no bound on the part sizes. For a >= b >= c >= d >= 1, the largest part a must be even; four disjoint cases involving d, c and the parity of b give the remaining conditions. The proof identifies every possible column move by its height and gives an explicit winning move in each complementary case. Consequences include even-rank necessity and hook-stacking closure with at most four rows or columns, the odd-gap winning-move conclusion through six rows or columns using Mehat's rank theorem, exact padding formulas for one- and two-part inputs, and an explanation of 21 of the 38 diagrams in their Appendix A.",
+  "summary": "Alternative proof of Mehat's four-part classification, explicit winning moves, small-row hook stacking, six-row odd-gap consequences, padding formulas, and checked boundary counterexamples with prior attribution.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/e0da8fcc80226febc4e7ea0836927bc71d158292/D5/S3/Combinatorics/Games/CrimFourPartClassification.lean",
+  "source_url": "https://arxiv.org/abs/2606.16828v1",
+  "posing_locator": "Section 5, Question 1, p. 17",
+  "date": "2026-11-06",
+  "coverage": {
+    "four_part_outcome": "Theorem 1; all positive a >= b >= c >= d, without a size bound",
+    "three_part_boundary": "The all-one column [1,1,1] is winning; the corrected full three-part classification has a written proof",
+    "consequences": "Written proofs for even-rank necessity and losing-hook stacking with at most four rows or columns; first-row/first-column moves through six rows or columns using Mehat Corollary 3; exact padding and appending formulas on one- and two-part inputs",
+    "finite_checks": "All 46,376 partitions with at most four parts and largest part at most 30; 40,920 four-part positions, 15,761 losing; thirteen strategy branches; Mehat parity-table comparison; 7,149 hook stacks and their conjugates; all 38 Appendix A diagrams",
+    "formal_declaration": "D5.S3.Combinatorics.Games.CrimFourPartClassification.result proves the unrestricted four-part Grundy-zero equivalence",
+    "boundary_declaration": "D5.S0.Certificates.Games.CrimRectairSquareBoundaryRefutation.result negates the printed universal square-rectair formula using r=1, k=0; no replacement for r>=2 is asserted"
+  },
+  "prior_work": {
+    "four_part_classification": "Mehat, 23 August 2026, Theorem 4, p. 2; proof Section 8, p. 9; alternative proof here",
+    "three_part_correction": "Mehat, 23 August 2026, Corollary 25 and Section 12",
+    "rank_through_six": "Mehat, 23 August 2026, Corollary 3"
+  },
+  "prior_source_url": "https://doi.org/10.5281/zenodo.22070744"
+}

@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 82502,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "7f3f62b9c090e3d67169b13534deaaa144b31b4b2558b6f46a32d2cced8fba04",
+      "sha256": "7f3f62b9c090e3d67169b13534deaaa144b31b4b2558b6f46a32d2cced8fba04"
+    },
+    "source": {
+      "bytes": 17387,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "06cc60849121ffd775cc6dd9587963844bf4daf1d9f39317a14c9391f270be73",
+      "sha256": "06cc60849121ffd775cc6dd9587963844bf4daf1d9f39317a14c9391f270be73"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "For Bašić–Gottlieb–Krnc (2026), Section 5, Question 1, p. 17, we give an alternative proof of Mehat's classification (23 August 2026) of all losing four-part positions in normal-play CRIM, with no bound on the part sizes. For a >= b >= c >= d >= 1, the largest part a must be even; four disjoint cases involving d, c and the parity of b give the remaining conditions. The proof identifies every possible column move by its height and gives an explicit winning move in each complementary case. Consequences include even-rank necessity and hook-stacking closure with at most four rows or columns, the odd-gap winning-move conclusion through six rows or columns using Mehat's rank theorem, exact padding formulas for one- and two-part inputs, and an explanation of 21 of the 38 diagrams in their Appendix A.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 2,
+    "doi": null,
+    "lean_source": {
+      "revision": "e0da8fcc80226febc4e7ea0836927bc71d158292",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/e0da8fcc80226febc4e7ea0836927bc71d158292/D5/S3/Combinatorics/Games/CrimFourPartClassification.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 82502,
+      "sha256": "7f3f62b9c090e3d67169b13534deaaa144b31b4b2558b6f46a32d2cced8fba04",
+      "url": "/api/v1/collected-papers/crim-question-one-four-parts/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-22T21:52:38.103428555Z",
+    "record": "crim-question-one-four-parts",
+    "repository_name": "crim-question-one-four-parts",
+    "source": {
+      "bytes": 17387,
+      "sha256": "06cc60849121ffd775cc6dd9587963844bf4daf1d9f39317a14c9391f270be73",
+      "url": "/api/v1/collected-papers/crim-question-one-four-parts/files/source?version=2"
+    },
+    "title": "Bašić–Gottlieb–Krnc (2026), Section 5, Question 1 (p. 17): an alternative four-part proof after Mehat (2026), with explicit strategies and small-row stacking",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-22T21:52:38.103428555Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "crim-question-one-four-parts"
+  }
+}

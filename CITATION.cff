@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, cite it."
+title: "Bašić–Gottlieb–Krnc (2026), Section 5, Question 1 (p. 17): an alternative four-part proof after Mehat (2026), with explicit strategies and small-row stacking"
+authors:
+  - name: "Haobo Ma"
+  - name: "Wenlin Zhang"
+date-released: "2026-11-22"
+version: "2"
+url: "https://mathesis-omega-research.apps.chrono-ai.fun/papers/crim-question-one-four-parts?version=2"
+license: "CC-BY-4.0"
