@@ -31,6 +31,7 @@
     "concept_doi": "10.5281/zenodo.24406583",
     "current_version": 2,
     "doi": "10.5281/zenodo.24406584",
+    "kind": "note",
     "lean_source": {
       "revision": "e0da8fcc80226febc4e7ea0836927bc71d158292",
       "url": "https://github.com/the-omega-institute/trureturing/blob/e0da8fcc80226febc4e7ea0836927bc71d158292/D5/S3/Combinatorics/Games/CrimFourPartClassification.lean"
@@ -55,10 +56,12 @@
     "title": "Bašić–Gottlieb–Krnc (2026), Section 5, Question 1 (p. 17): an alternative four-part proof after Mehat (2026), with explicit strategies and small-row stacking",
     "versions": [
       {
+        "changelog": null,
         "previous_version": null,
         "published_on": "2026-11-22T21:52:38.103428555Z",
         "revision": "2",
-        "version": 2
+        "version": 2,
+        "version_label": null
       }
     ],
     "work": "crim-question-one-four-parts"
